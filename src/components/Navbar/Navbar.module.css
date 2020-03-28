@@ -1,0 +1,42 @@
+.nav {
+	grid-area: n;
+	background-color: grey;
+	padding: 20px;
+}
+
+.item a {
+	color: white;
+	text-decoration: none;
+}
+
+.item a.activeLink {
+	color: gold;
+}
+
+.friendsList {
+	margin-top: 30px;
+	text-align: center;
+}
+.friendsList a {
+	font-size: 20px;
+}
+.friendsList .friend {
+	width: 50px;
+}
+.friendsList .friend img{
+	/*margin-left: 50px;*/
+	height: 50px;
+	width: 50px;
+	display: block;
+	border-radius: 50%;
+}
+.friendsList .friend a {
+	margin-bottom: 10px;
+	font-size: 16px;
+	display: block;
+}
+
+.friendsList .friends {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
