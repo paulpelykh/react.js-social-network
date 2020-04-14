@@ -4,19 +4,16 @@ import * as axios from 'axios';
 import userPhoto from '../../assets/images/user.png';
 
 let Users = (props) => {
-    if (props.users.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respone => {
-            debugger;
-            props.setUsers(respone.data.items);
-        });
-        // props.setUsers([
-        //     { id: 1, photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/TechCrunch_Disrupt_Europe_Berlin_2013_%2810536888854%29_%28cropped%29.jpg', followed: false, fullName: 'Paul', status: 'I am Paul Pelykh', location: { city: 'Lviv', country: 'Ukraine' } },
-        //     { id: 2, photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/TechCrunch_Disrupt_Europe_Berlin_2013_%2810536888854%29_%28cropped%29.jpg', followed: true, fullName: 'Peter', status: 'I am Peter Pelykh', location: { city: 'Kyiv', country: 'Ukraine' } },
-        //     { id: 3, photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/TechCrunch_Disrupt_Europe_Berlin_2013_%2810536888854%29_%28cropped%29.jpg', followed: false, fullName: 'Ivan', status: 'I am boss', location: { city: 'Lviv', country: 'Ukraine' } },
-        //     { id: 4, photoUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/68/TechCrunch_Disrupt_Europe_Berlin_2013_%2810536888854%29_%28cropped%29.jpg', followed: true, fullName: 'John', status: 'I am John', location: { city: 'Lviv', country: 'Ukraine' } },
-        // ]);
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(respone => {
+                debugger;
+                props.setUsers(respone.data.items);
+            });
+        }
     }
     return <div>
+        <button onClick={getUsers}>Get Users</button>
         {
             props.users.map(u => <div key={u.id}>
                 <span>
