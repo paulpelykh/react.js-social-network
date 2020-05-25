@@ -5,7 +5,10 @@ import { NavLink } from 'react-router-dom';
 
 let Users = (props) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    //to not show all users
+    //delete later
+    let pagesCount = 30;
 
     let pages = [];
 
@@ -41,10 +44,10 @@ let Users = (props) => {
                         <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>
-                    </span>
+                    {/* <span>
+                        <div>{'u.location.country'}</div>
+                        <div>{'u.location.city'}</div>
+                    </span> */}
                 </span>
             </div>)
         }
