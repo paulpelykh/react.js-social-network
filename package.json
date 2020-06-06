@@ -8,7 +8,7 @@
     "react-dom": "^16.10.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.2.0",
     "redux": "^4.0.5"
   },
   "scripts": {
@@ -31,5 +31,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulpelykh/react.js-social-network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulpelykh/react.js-social-network/issues"
+  },
+  "homepage": "https://github.com/paulpelykh/react.js-social-network#readme"
 }
