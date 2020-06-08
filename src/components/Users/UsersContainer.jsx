@@ -24,7 +24,7 @@ class UsersContainer extends React.Component {
         //delete later
         pageNumber += 600;
 
-        this.props.setCurrentPage(pageNumber)
+        this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
             withCredentials: true

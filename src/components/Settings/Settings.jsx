@@ -3,7 +3,10 @@ import s from './Settings.module.css';
 
 const Settings = () => {
 	return (
-		<h1>Settings</h1>
+		<div>
+			<h1>Settings</h1>
+			<h3>Coming soon...</h3>
+		</div>
 	);
 }
 

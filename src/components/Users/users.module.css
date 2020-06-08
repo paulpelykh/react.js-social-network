@@ -1,8 +1,49 @@
 .userPhoto {
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
 }
 
 .selectedPage {
     font-weight: bold;
+    color: red;
+}
+
+.number {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #1DA1F2;
+    margin-left: 5px;
+}
+.number:hover {
+    cursor: pointer;
+}
+
+.user {
+    display: block;
+    width: 250px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.user button {
+    display: block;
+    margin: auto;
+    color: white;
+    border: none;
+    background-color: #1DA1F2;
+    width: 80px;
+    height: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.user button:hover {
+    cursor: pointer;
+    background-color: rgb(0, 110, 255);
+}
+
+.user .status {
+    font-size: 20px;
+    color: #657786;
 }

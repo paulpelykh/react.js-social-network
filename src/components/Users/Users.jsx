@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './users.module.css';
-import userPhoto from '../../assets/images/user.png';
+import userPhoto from '../../assets/images/user.svg';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -20,12 +20,13 @@ let Users = (props) => {
     return <div>
         <div>
             {pages.map(p => {
-                return <span className={props.currentPage === p && styles.selectedPage}
+                // return <span className={props.currentPage == p && styles.selectedPage}
+                return <span className={styles.number}
                     onClick={(e) => { props.onPageChanged(p); }}>{p}</span>
             })}
         </div>
         {
-            props.users.map(u => <div key={u.id}>
+            props.users.map(u => <div key={u.id} className={styles.user}>
                 <span>
                     <div>
                         <NavLink to={'/profile/' + u.id}>
@@ -33,6 +34,16 @@ let Users = (props) => {
                                 className={styles.userPhoto} />
                         </NavLink>
                     </div>
+                    <span>
+                        <span>
+                            <div className={styles.name}>{u.name}</div>
+                            <div className={styles.status}>{u.status}</div>
+                        </span>
+                        {/* <span>
+                        <div>{'u.location.country'}</div>
+                        <div>{'u.location.city'}</div>
+                    </span> */}
+                    </span>
                     <div>
                         {u.followed
                             ? <button onClick={() => {
@@ -65,16 +76,6 @@ let Users = (props) => {
                             }>Follow</button>
                         }
                     </div>
-                </span>
-                <span>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    {/* <span>
-                        <div>{'u.location.country'}</div>
-                        <div>{'u.location.city'}</div>
-                    </span> */}
                 </span>
             </div>)
         }
