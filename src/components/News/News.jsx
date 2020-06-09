@@ -1,9 +1,16 @@
 import React from 'react';
 import s from './News.module.css';
+import Article from './Article';
 
-const News = () => {
+const News = (props) => {
+	let News = props.news.map(article => {
+		return <Article img={article.urlToImage} title={article.title} url={article.url}/>
+	});
+
 	return (
-		<h1>News</h1>
+		<div>
+			{News}
+		</div>
 	);
 }
 
