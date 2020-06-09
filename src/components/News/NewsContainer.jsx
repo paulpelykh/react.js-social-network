@@ -18,7 +18,6 @@ class NewsContainer extends React.Component {
 
 	render() {
 		return <>
-			{this.props.isFetching ? <Preloader /> : null}
 			<News newsType={this.props.newsType} news={this.props.news} />
 		</>
 	}

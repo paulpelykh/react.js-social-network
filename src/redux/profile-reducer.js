@@ -4,10 +4,10 @@ const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 let initialState = {
     posts: [
-        { id: 1, message: 'hi, how are you?', likescount: 12 },
-        { id: 2, message: 'its my first post', likescount: 11 },
-        { id: 3, message: 'hello', likescount: 3 },
-        { id: 4, message: 'blabla', likescount: 2 },
+        { id: 1, message: 'hi, how are you?'},
+        { id: 2, message: 'its my first post'},
+        { id: 3, message: 'hello'},
+        { id: 4, message: 'blabla'},
     ],
     newPostText: 'Hi my name is Paul Pelykh',
     profile: null
@@ -19,7 +19,6 @@ const profileReducer = (state = initialState, action) => {
             let newPost = {
                 id: 5,
                 message: state.newPostText,
-                likesCount: 0,
             };
 
             return {
