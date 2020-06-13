@@ -4,21 +4,33 @@ import { connect } from 'react-redux';
 import News from './News';
 import { toggleIsFetching, setNews } from '../../redux/news-reducer';
 import Preloader from '../common/Preloader/Preloader';
+import { getNews } from '../../api/api';
 
 class NewsContainer extends React.Component {
 
 	componentDidMount() {
 		this.props.toggleIsFetching(true);
-		axios.get(`http://newsapi.org/v2/everything?q=${this.props.newsType}&from=2020-05-09&sortBy=publishedAt&apiKey=f7eedccf68304f6e81c63506458ae03b`)
-			.then(response => {
-				this.props.setNews(response.data.articles);
+
+		//todo create normal date
+		let date = new Date();
+		let year = new Date().getFullYear();
+		let month = new Date().getMonth();
+		let day = new Date().getDate();
+
+		let dateToStr = `${year}-${month}-${day}`;
+		let newsType = 'all';
+
+		console.log(dateToStr);
+		getNews(newsType, dateToStr)
+			.then(articles => {
 				this.props.toggleIsFetching(false);
+				this.props.setNews(articles);
 			});
 	}
 
 	render() {
 		return <>
-            {this.props.isFetching ? <Preloader /> : null}
+			{this.props.isFetching ? <Preloader /> : null}
 			<News newsType={this.props.newsType} news={this.props.news} />
 		</>
 	}
