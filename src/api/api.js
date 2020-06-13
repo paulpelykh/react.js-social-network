@@ -15,3 +15,22 @@ export const getNews = (newsType, date) => {
             return response.data.articles;
         });
 }
+
+export const authMe = () => {
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+        withCredentials: true
+    })
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                let { id, login, email } = response.data.data;
+                return {id, login, email};
+            }
+        });
+}
+
+export const getUserProfile = (userId) => {
+    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+      .then(respone => {
+        return respone.data;
+      });
+}

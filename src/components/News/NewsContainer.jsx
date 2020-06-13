@@ -11,7 +11,6 @@ class NewsContainer extends React.Component {
 	componentDidMount() {
 		this.props.toggleIsFetching(true);
 
-		//todo create normal date
 		let date = new Date();
 		let year = new Date().getFullYear();
 		let month = new Date().getMonth();
@@ -20,7 +19,6 @@ class NewsContainer extends React.Component {
 		let dateToStr = `${year}-${month}-${day}`;
 		let newsType = 'all';
 
-		console.log(dateToStr);
 		getNews(newsType, dateToStr)
 			.then(articles => {
 				this.props.toggleIsFetching(false);
