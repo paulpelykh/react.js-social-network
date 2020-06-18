@@ -1,11 +1,34 @@
 import * as axios from 'axios';
 
+const instance = axios.create({
+    withCredentials: true,
+    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+    headers: {
+        'API-KEY': '28c27c05-737c-47df-b710-608da0b74bb2'
+    }
+})
+
 export const getUsers = (currentPage = 1, pageSize = 10) => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`, {
-        withCredentials: true
-    })
+    return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         .then(response => {
             return response.data
+        });
+}
+
+export const authMe = () => {
+    return instance.get(`auth/me`)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                let { id, login, email } = response.data.data;
+                return { id, login, email };
+            }
+        });
+}
+
+export const getUserProfile = (userId) => {
+    return instance.get(`profile/${userId}`)
+        .then(respone => {
+            return respone.data;
         });
 }
 
@@ -14,23 +37,4 @@ export const getNews = (newsType, date) => {
         .then(response => {
             return response.data.articles;
         });
-}
-
-export const authMe = () => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-        withCredentials: true
-    })
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                let { id, login, email } = response.data.data;
-                return {id, login, email};
-            }
-        });
-}
-
-export const getUserProfile = (userId) => {
-    return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-      .then(respone => {
-        return respone.data;
-      });
 }
